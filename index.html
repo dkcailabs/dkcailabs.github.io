@@ -1403,6 +1403,15 @@
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
+
+        // Animated Title
+        const fullTitle = "DKC AI Labs - Mobil Oyun & Uygulama Geliştirici   •   ";
+        let titleIndex = 0;
+
+        setInterval(() => {
+            document.title = fullTitle.substring(titleIndex) + fullTitle.substring(0, titleIndex);
+            titleIndex = (titleIndex + 1) % fullTitle.length;
+        }, 200);
     </script>
 </body>
 </html>
