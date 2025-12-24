@@ -4,7 +4,9 @@
       "Bash(git config:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Bash(cmdkey /list:*)"
+      "Bash(cmdkey /list:*)",
+      "Bash(dir:*)",
+      "Bash(powershell -NoProfile -Command:*)"
     ]
   }
 }
