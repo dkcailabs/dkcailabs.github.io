@@ -1412,6 +1412,11 @@
             document.title = fullTitle.substring(titleIndex) + fullTitle.substring(0, titleIndex);
             titleIndex = (titleIndex + 1) % fullTitle.length;
         }, 200);
+
+        // URL'den index.html'i temizle
+        if (window.location.pathname.endsWith('index.html')) {
+            history.replaceState(null, '', window.location.pathname.replace('index.html', ''));
+        }
     </script>
 </body>
 </html>
