@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Block Puzzle+ - DKC AI Labs</title>
+    <meta name="description" content="Block Puzzle+ - Klasik blok bulmaca deneyimini yeniden keşfedin. Strateji ve hız bir arada!">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-primary: #f0f4f8;
+            --bg-secondary: #ffffff;
+            --bg-card: rgba(255, 255, 255, 0.8);
+            --text-primary: #0a1628;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --accent-1: #0ea5e9;
+            --accent-2: #1e3a5f;
+            --accent-3: #c0c0c0;
+            --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #1e3a5f 100%);
+            --card-shadow: 0 8px 32px rgba(14, 165, 233, 0.1);
+            --card-border: rgba(14, 165, 233, 0.2);
+            --nav-bg: rgba(240, 244, 248, 0.8);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0a1628;
+            --bg-secondary: #0f1f35;
+            --bg-card: rgba(15, 31, 53, 0.8);
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-1: #38bdf8;
+            --accent-2: #1e3a5f;
+            --accent-3: #c0c0c0;
+            --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #c0c0c0 100%);
+            --card-shadow: 0 8px 32px rgba(56, 189, 248, 0.15);
+            --card-border: rgba(56, 189, 248, 0.3);
+            --nav-bg: rgba(10, 22, 40, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .bg-effects {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+        }
+
+        .bg-orb-1 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-1);
+            top: -150px;
+            right: -150px;
+        }
+
+        .bg-orb-2 {
+            width: 300px;
+            height: 300px;
+            background: var(--accent-3);
+            bottom: -100px;
+            left: -100px;
+            opacity: 0.2;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--nav-bg);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-btn:hover {
+            color: var(--accent-1);
+        }
+
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 120px 2rem 60px;
+        }
+
+        .game-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .game-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .game-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .game-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .game-icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 24px;
+            margin: 0 auto 1.5rem;
+            background: var(--accent-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: var(--card-shadow);
+        }
+
+        .game-icon img {
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            object-fit: cover;
+        }
+
+        .screenshots-section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .screenshot {
+            aspect-ratio: 9/16;
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+        }
+
+        .screenshot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .description-section {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .description-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .description-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .features-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-secondary);
+        }
+
+        .features-list li::before {
+            content: '✓';
+            color: var(--accent-1);
+            font-weight: bold;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .info-card .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-card .value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 2rem;
+            background: var(--bg-card);
+            border: 1px solid var(--card-border);
+            border-radius: 24px;
+            backdrop-filter: blur(10px);
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: white;
+            box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(14, 165, 233, 0.5);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 100px 1rem 40px;
+            }
+
+            .screenshots-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-effects">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="../index.html" class="back-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                Geri Dön
+            </a>
+            <a href="../index.html" class="logo-text">DKC AI Labs</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="game-header">
+            <div class="game-icon">
+                <img src="block_gorsel1.png" alt="Block Puzzle+" onerror="this.parentElement.innerHTML='🧩'">
+            </div>
+            <span class="game-badge">Kapalı Test</span>
+            <h1 class="game-title">Block Puzzle+</h1>
+            <p class="game-subtitle">Klasik blok bulmaca deneyimini yeniden keşfedin. Strateji ve hız bir arada!</p>
+        </div>
+
+        <div class="screenshots-section">
+            <h2 class="section-title">Ekran Görüntüleri</h2>
+            <div class="screenshots-grid">
+                <div class="screenshot">
+                    <img src="detail/screenshot1.png" alt="Ekran Görüntüsü 1" onerror="this.parentElement.innerHTML='Görsel Eklenecek'">
+                </div>
+                <div class="screenshot">
+                    <img src="detail/screenshot2.png" alt="Ekran Görüntüsü 2" onerror="this.parentElement.innerHTML='Görsel Eklenecek'">
+                </div>
+                <div class="screenshot">
+                    <img src="detail/screenshot3.png" alt="Ekran Görüntüsü 3" onerror="this.parentElement.innerHTML='Görsel Eklenecek'">
+                </div>
+                <div class="screenshot">
+                    <img src="detail/screenshot4.png" alt="Ekran Görüntüsü 4" onerror="this.parentElement.innerHTML='Görsel Eklenecek'">
+                </div>
+            </div>
+        </div>
+
+        <div class="description-section">
+            <h2 class="section-title">Oyun Hakkında</h2>
+            <p>Block Puzzle+, klasik blok bulmaca oyunlarının eğlencesini modern bir tasarımla buluşturuyor. Farklı şekillerdeki blokları stratejik olarak yerleştirin, satır ve sütunları tamamlayarak puan kazanın!</p>
+            <p>Basit kurallar, sonsuz eğlence! Her yaştan oyuncu için uygun olan bu bulmaca oyunu, hem rahatlatıcı hem de zihin açıcı bir deneyim sunuyor.</p>
+
+            <ul class="features-list">
+                <li>Sade ve modern arayüz</li>
+                <li>Sonsuz oyun modu</li>
+                <li>Farklı zorluk seviyeleri</li>
+                <li>Çevrimdışı oynanabilir</li>
+                <li>Düşük pil tüketimi</li>
+                <li>Reklamsız deneyim</li>
+            </ul>
+        </div>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <div class="label">Platform</div>
+                <div class="value">Android</div>
+            </div>
+            <div class="info-card">
+                <div class="label">Kategori</div>
+                <div class="value">Bulmaca</div>
+            </div>
+            <div class="info-card">
+                <div class="label">Durum</div>
+                <div class="value">Kapalı Test</div>
+            </div>
+            <div class="info-card">
+                <div class="label">Yaş</div>
+                <div class="value">Tüm Yaşlar</div>
+            </div>
+        </div>
+
+        <div class="cta-section">
+            <h2 class="section-title">Teste Katılmak İster Misiniz?</h2>
+            <p>Block Puzzle+ şu anda kapalı test aşamasında. Teste katılmak için Google Play'den başvurabilirsiniz.</p>
+            <a href="#" class="btn btn-primary">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 9.99l-2.302 2.302-8.634-8.634z"/></svg>
+                Google Play'de Görüntüle
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+    </script>
+</body>
+</html>

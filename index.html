@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DKC AI Labs - Mobil Oyun & Uygulama Geliştirici</title>
-    <meta name="description" content="DKC AI Labs - Yapay zeka destekli mobil oyun ve uygulama geliştirme stüdyosu">
+    <meta name="description" content="DKC AI Labs - Yapay zeka teknolojilerini kullanarak mobil oyun ve uygulama geliştiren stüdyo">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,36 +13,39 @@
     
     <style>
         :root {
-            /* Light Theme */
-            --bg-primary: #f8f9fc;
+            /* Light Theme - Sky Blue, Silver, Navy */
+            --bg-primary: #f0f4f8;
             --bg-secondary: #ffffff;
             --bg-card: rgba(255, 255, 255, 0.8);
             --bg-glass: rgba(255, 255, 255, 0.6);
-            --text-primary: #1a1a2e;
-            --text-secondary: #4a4a68;
-            --text-muted: #8888a0;
-            --accent-1: #6c5ce7;
-            --accent-2: #00cec9;
-            --accent-gradient: linear-gradient(135deg, #6c5ce7 0%, #a855f7 50%, #00cec9 100%);
-            --card-shadow: 0 8px 32px rgba(108, 92, 231, 0.1);
-            --card-border: rgba(108, 92, 231, 0.2);
-            --nav-bg: rgba(248, 249, 252, 0.8);
+            --text-primary: #0a1628;
+            --text-secondary: #475569;
+            --text-muted: #94a3b8;
+            --accent-1: #0ea5e9;
+            --accent-2: #1e3a5f;
+            --accent-3: #c0c0c0;
+            --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #1e3a5f 100%);
+            --card-shadow: 0 8px 32px rgba(14, 165, 233, 0.1);
+            --card-border: rgba(14, 165, 233, 0.2);
+            --nav-bg: rgba(240, 244, 248, 0.8);
         }
 
         [data-theme="dark"] {
-            --bg-primary: #0a0a0f;
-            --bg-secondary: #12121a;
-            --bg-card: rgba(18, 18, 26, 0.8);
-            --bg-glass: rgba(18, 18, 26, 0.6);
+            /* Dark Theme - Sky Blue, Silver, Navy */
+            --bg-primary: #0a1628;
+            --bg-secondary: #0f1f35;
+            --bg-card: rgba(15, 31, 53, 0.8);
+            --bg-glass: rgba(15, 31, 53, 0.6);
             --text-primary: #ffffff;
-            --text-secondary: #b8b8d0;
-            --text-muted: #6868a0;
-            --accent-1: #a855f7;
-            --accent-2: #22d3ee;
-            --accent-gradient: linear-gradient(135deg, #6c5ce7 0%, #a855f7 50%, #22d3ee 100%);
-            --card-shadow: 0 8px 32px rgba(168, 85, 247, 0.15);
-            --card-border: rgba(168, 85, 247, 0.3);
-            --nav-bg: rgba(10, 10, 15, 0.85);
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --accent-1: #38bdf8;
+            --accent-2: #1e3a5f;
+            --accent-3: #c0c0c0;
+            --accent-gradient: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 50%, #c0c0c0 100%);
+            --card-shadow: 0 8px 32px rgba(56, 189, 248, 0.15);
+            --card-border: rgba(56, 189, 248, 0.3);
+            --nav-bg: rgba(10, 22, 40, 0.85);
         }
 
         * {
@@ -356,12 +359,12 @@
         .btn-primary {
             background: var(--accent-gradient);
             color: white;
-            box-shadow: 0 4px 20px rgba(168, 85, 247, 0.4);
+            box-shadow: 0 4px 20px rgba(14, 165, 233, 0.4);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(168, 85, 247, 0.5);
+            box-shadow: 0 8px 30px rgba(14, 165, 233, 0.5);
         }
 
         .btn-secondary {
@@ -555,7 +558,7 @@
         }
 
         .badge-soon {
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            background: linear-gradient(135deg, #1e3a5f, #0f172a);
             color: white;
         }
 
@@ -656,25 +659,28 @@
 
         .privacy-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
 
         .privacy-card {
             background: var(--bg-card);
             border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 1.5rem;
+            border-radius: 20px;
+            padding: 1.5rem 2rem;
             backdrop-filter: blur(10px);
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            text-decoration: none;
+            color: inherit;
         }
 
         .privacy-card:hover {
-            transform: translateX(10px);
+            transform: translateY(-5px);
             box-shadow: var(--card-shadow);
+            border-color: var(--accent-1);
         }
 
         .privacy-card .info {
@@ -684,34 +690,50 @@
         }
 
         .privacy-card .icon {
-            width: 50px;
-            height: 50px;
+            width: 48px;
+            height: 48px;
             background: var(--accent-gradient);
-            border-radius: 12px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
+            flex-shrink: 0;
         }
 
-        .privacy-card h4 {
+        .privacy-card .text-content h4 {
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 600;
-            margin-bottom: 2px;
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+            color: var(--text-primary);
         }
 
-        .privacy-card span {
+        .privacy-card .text-content span {
             font-size: 0.85rem;
             color: var(--text-muted);
         }
 
         .privacy-card .arrow {
+            width: 36px;
+            height: 36px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--card-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: var(--accent-1);
-            font-size: 1.2rem;
-            transition: transform 0.3s ease;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
         }
 
         .privacy-card:hover .arrow {
-            transform: translateX(5px);
+            background: var(--accent-gradient);
+            color: white;
+            border-color: transparent;
+            transform: translateX(3px);
         }
 
         /* Contact Section */
@@ -727,18 +749,6 @@
             border-radius: 24px;
             padding: 3rem;
             backdrop-filter: blur(10px);
-        }
-
-        .contact-icon {
-            width: 80px;
-            height: 80px;
-            background: var(--accent-gradient);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2rem;
         }
 
         .contact-card h3 {
@@ -929,7 +939,6 @@
     <nav>
         <div class="nav-container">
             <a href="#" class="logo">
-                <img src="imzalogo.png" alt="DKC AI Labs" class="logo-img" onerror="this.style.display='none'">
                 <span class="logo-text">DKC AI Labs</span>
             </a>
             
@@ -964,10 +973,10 @@
                 <span>Aktif geliştirme aşamasındayız!</span>
             </div>
             <h1>
-                Mobil Oyun &<br>
-                <span class="gradient-text">Uygulama Stüdyosu</span>
+                Geleceğin Oyunlarını<br>
+                <span class="gradient-text">Bugünden Geliştiriyoruz</span>
             </h1>
-            <p>Yapay zeka destekli, yenilikçi mobil deneyimler oluşturuyoruz. Eğlenceli oyunlar ve kullanışlı uygulamalar geliştiriyoruz.</p>
+            <p>Yapay zeka teknolojilerini kullanarak yenilikçi mobil oyunlar ve uygulamalar geliştiriyoruz.</p>
             <div class="hero-buttons">
                 <a href="#oyunlar" class="btn btn-primary">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H8v3H6v-3H3v-2h3V8h2v3h3v2zm4.5 2c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4-3c-.83 0-1.5-.67-1.5-1.5S18.67 9 19.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
@@ -988,8 +997,8 @@
             
             <div class="about-grid">
                 <div class="about-content animate-on-scroll">
-                    <h3>Yapay Zeka ile Güçlendirilmiş Geliştirme</h3>
-                    <p>DKC AI Labs olarak, 2 kişilik tutkulu bir ekip halinde mobil oyun ve uygulama dünyasında yenilikçi projeler geliştiriyoruz. Yapay zeka teknolojilerini geliştirme süreçlerimize entegre ederek, daha akıllı, daha eğlenceli ve daha kullanıcı dostu deneyimler oluşturuyoruz.</p>
+                    <h3>Yapay Zeka Teknolojileri ile Geliştirme</h3>
+                    <p>DKC AI Labs olarak, 2 kişilik tutkulu bir ekip halinde mobil oyun ve uygulama dünyasında yenilikçi projeler geliştiriyoruz. Yapay zeka teknolojilerini geliştirme süreçlerimizde kullanarak, daha akıllı, daha eğlenceli ve daha kullanıcı dostu deneyimler oluşturuyoruz.</p>
                     <p>Belirli bir türe bağlı kalmadan, puzzle'dan maceraya, casual'dan strateji oyunlarına kadar geniş bir yelpazede projeler üretiyoruz. Amacımız, her projede güncel teknolojileri kullanarak kullanıcılara unutulmaz deneyimler sunmak.</p>
                     
                     <div class="about-stats">
@@ -1002,8 +1011,8 @@
                             <div class="label">Kişilik Ekip</div>
                         </div>
                         <div class="stat-card">
-                            <div class="number">AI</div>
-                            <div class="label">Destekli</div>
+                            <div class="number">∞</div>
+                            <div class="label">Tutku</div>
                         </div>
                     </div>
                 </div>
@@ -1011,16 +1020,16 @@
                 <div class="about-visual animate-on-scroll">
                     <div class="tech-stack">
                         <div class="tech-item">
-                            <div class="icon">🤖</div>
+                            <div class="icon">🎯</div>
                             <div class="info">
-                                <h4>Yapay Zeka</h4>
-                                <span>AI Destekli Geliştirme</span>
+                                <h4>Flutter</h4>
+                                <span>Uygulama Framework</span>
                             </div>
                         </div>
                         <div class="tech-item">
-                            <div class="icon">🎮</div>
+                            <div class="icon">🔥</div>
                             <div class="info">
-                                <h4>Unity</h4>
+                                <h4>Flame</h4>
                                 <span>Oyun Motoru</span>
                             </div>
                         </div>
@@ -1028,14 +1037,14 @@
                             <div class="icon">📱</div>
                             <div class="info">
                                 <h4>Android</h4>
-                                <span>Mobil Platform</span>
+                                <span>Aktif Platform</span>
                             </div>
                         </div>
                         <div class="tech-item">
-                            <div class="icon">🚀</div>
+                            <div class="icon">🍎</div>
                             <div class="info">
-                                <h4>Güncel Tech</h4>
-                                <span>Modern Araçlar</span>
+                                <h4>iOS</h4>
+                                <span>Yakında</span>
                             </div>
                         </div>
                     </div>
@@ -1068,9 +1077,9 @@
                         </span>
                     </div>
                     <div class="game-actions">
-                        <a href="#" class="btn btn-google-play">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 9.99l-2.302 2.302-8.634-8.634z"/></svg>
-                            Teste Katıl
+                        <a href="games/block-puzzle-plus.html" class="btn btn-primary">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+                            İncele
                         </a>
                     </div>
                 </div>
@@ -1147,45 +1156,45 @@
                 <a href="privacy/block-puzzle-plus.html" class="privacy-card animate-on-scroll">
                     <div class="info">
                         <div class="icon">🧩</div>
-                        <div>
+                        <div class="text-content">
                             <h4>Block Puzzle+</h4>
                             <span>Android • Gizlilik Politikası</span>
                         </div>
                     </div>
-                    <span class="arrow">→</span>
+                    <div class="arrow">→</div>
                 </a>
 
                 <a href="privacy/kelimeler-turkiye.html" class="privacy-card animate-on-scroll">
                     <div class="info">
                         <div class="icon">🔤</div>
-                        <div>
+                        <div class="text-content">
                             <h4>Kelimeler ile TÜRKİYE</h4>
                             <span>Android • Gizlilik Politikası</span>
                         </div>
                     </div>
-                    <span class="arrow">→</span>
+                    <div class="arrow">→</div>
                 </a>
 
                 <a href="privacy/altin-pesinde.html" class="privacy-card animate-on-scroll">
                     <div class="info">
                         <div class="icon">💰</div>
-                        <div>
+                        <div class="text-content">
                             <h4>Altın Peşinde</h4>
                             <span>Android • Gizlilik Politikası</span>
                         </div>
                     </div>
-                    <span class="arrow">→</span>
+                    <div class="arrow">→</div>
                 </a>
 
                 <a href="privacy/karanlik-labirent.html" class="privacy-card animate-on-scroll">
                     <div class="info">
                         <div class="icon">🌑</div>
-                        <div>
+                        <div class="text-content">
                             <h4>Karanlık Labirent</h4>
                             <span>Android • Gizlilik Politikası</span>
                         </div>
                     </div>
-                    <span class="arrow">→</span>
+                    <div class="arrow">→</div>
                 </a>
             </div>
         </div>
@@ -1201,7 +1210,6 @@
             
             <div class="contact-wrapper animate-on-scroll">
                 <div class="contact-card">
-                    <div class="contact-icon">✉️</div>
                     <h3>Bize Yazın</h3>
                     <p>Her türlü soru, öneri ve iş birliği teklifi için e-posta gönderebilirsiniz.</p>
                     <a href="mailto:dkcailabs@gmail.com" class="contact-email">
@@ -1268,15 +1276,23 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const href = this.getAttribute('href');
+                const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    // URL'den hash'i temizle
+                    history.pushState(null, null, ' ');
                 }
             });
         });
+
+        // Sayfa yüklendiğinde hash varsa temizle
+        if (window.location.hash) {
+            history.replaceState(null, null, window.location.pathname);
+        }
 
         // Animate on scroll
         const observerOptions = {
