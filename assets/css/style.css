@@ -1155,7 +1155,7 @@ footer {
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid var(--card-border);
-    aspect-ratio: 9/16;
+    aspect-ratio: 10/26;
     background: var(--bg-card);
 }
 
