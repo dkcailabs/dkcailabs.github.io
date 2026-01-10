@@ -580,6 +580,8 @@ section {
     backdrop-filter: blur(10px);
     transition: all 0.4s ease;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .game-card:hover {
@@ -637,6 +639,9 @@ section {
 
 .game-info {
     padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .game-info h3 {
@@ -649,6 +654,7 @@ section {
     color: var(--text-secondary);
     font-size: 0.95rem;
     margin-bottom: 1rem;
+    flex: 1;
 }
 
 .game-info .platform {
