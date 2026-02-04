@@ -1,4 +1,4 @@
-# DKC AI Labs - Sayfa Şablonları
+# DKC Ai Labs - Sayfa Şablonları
 
 ## Klasör Yapısı
 
@@ -36,7 +36,7 @@ android/
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OYUN_ADI - DKC AI Labs</title>
+    <title>OYUN_ADI - DKC Ai Labs</title>
     <meta name="description" content="OYUN_ADI - OYUN_TAGLINE">
     <link rel="icon" type="image/png" href="../../assets/images/imzalogo.png">
 
@@ -59,7 +59,7 @@ android/
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
                 Geri Dön
             </a>
-            <a href="../../index.html" class="logo-text">DKC AI Labs</a>
+            <a href="../../index.html" class="logo-text">DKC Ai Labs</a>
         </div>
     </nav>
 
@@ -188,7 +188,7 @@ android/
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gizlilik Politikası - OYUN_ADI | DKC AI Labs</title>
+    <title>Gizlilik Politikası - OYUN_ADI | DKC Ai Labs</title>
     <meta name="description" content="OYUN_ADI oyunu için gizlilik politikası">
     <link rel="icon" type="image/png" href="../../assets/images/imzalogo.png">
 
@@ -211,7 +211,7 @@ android/
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
                 Geri Dön
             </a>
-            <a href="../../index.html" class="logo-text">DKC AI Labs</a>
+            <a href="../../index.html" class="logo-text">DKC Ai Labs</a>
         </div>
     </nav>
 
@@ -340,6 +340,11 @@ android/
 | Block Crush: Cubix | block-crush-cubix | Kapalı Test |
 | Block Puzzle+ | block-puzzle-plus | Kapalı Test |
 | Bricks Breaker | bricks-breaker | Yakında |
+| Dots and Boxes: Lucky | dots-and-boxes-lucky | Yakında |
+| Hikaye Kutusu | hikaye-kutusu | Yakında |
 | Kelimeler ile TÜRKİYE | kelimeler-turkiye | Yakında |
+| Neon Havoc | neon-havoc | Yakında |
+| Noir Space | noir-space | Yakında |
 | Rust Hunt | rust-hunt | Yakında |
+| Sudoku Classic+ | sudoku-classic-plus | Yakında |
 | Target: Core | target-core | Kapalı Test |

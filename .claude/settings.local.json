@@ -6,7 +6,14 @@
       "Bash(git push:*)",
       "Bash(cmdkey /list:*)",
       "Bash(dir:*)",
-      "Bash(powershell -NoProfile -Command:*)"
+      "Bash(powershell -NoProfile -Command:*)",
+      "Bash(ls:*)",
+      "Bash(for dir in c:/Users/abdul/website/dkcailabs.github.io/android/*/)",
+      "Bash(do if [ ! -d \"$dir/images/screenshots\" ])",
+      "Bash(then echo \"$dir\")",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(find:*)"
     ]
   }
 }

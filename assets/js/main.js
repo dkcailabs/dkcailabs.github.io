@@ -102,8 +102,8 @@ if (scrollTopBtn) {
 }
 
 // Animated Title (sadece ana sayfa için)
-if (document.title.includes('DKC AI Labs') && !document.title.includes('Gizlilik')) {
-    const fullTitle = "DKC AI Labs - Mobil Oyun & Uygulama Geliştirici   •   ";
+if (document.title.includes('DKC Ai Labs') && !document.title.includes('Gizlilik')) {
+    const fullTitle = "DKC Ai Labs - Mobil Oyun & Uygulama Geliştirici   •   ";
     let titleIndex = 0;
 
     setInterval(() => {
