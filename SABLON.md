@@ -22,7 +22,8 @@ android/
 3. `android/oyun-adi/privacy.html` oluştur (Gizlilik Şablonu)
 4. `index.html` ana sayfaya oyun kartını ekle (Oyunlar bölümü - alfabetik sıra)
 5. `index.html` ana sayfaya gizlilik kartını ekle (Gizlilik bölümü - alfabetik sıra)
-6. `index.html` hakkımızda bölümündeki oyun sayısını güncelle
+6. **`index.html` hakkımızda bölümündeki oyun sayısını güncelle (UNUTMA!)**
+7. Bu dosyadaki "Mevcut Oyunlar" tablosunu güncelle
 
 ---
 
@@ -264,7 +265,7 @@ android/
 
 > Alfabetik sıraya göre ekle
 
-### Kapalı Test / Yayında olan oyun:
+### Kapalı Test olan oyun (sadece İncele butonu):
 ```html
 <!-- OYUN_ADI -->
 <div class="game-card animate-on-scroll">
@@ -284,6 +285,35 @@ android/
         <a href="android/OYUN_KLASOR/" class="btn btn-primary">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
             İncele
+        </a>
+    </div>
+</div>
+```
+
+### Yayında olan oyun (İncele + Yükle butonları):
+```html
+<!-- OYUN_ADI -->
+<div class="game-card animate-on-scroll">
+    <span class="badge badge-live">Yayında</span>
+    <div class="game-image">
+        <img src="android/OYUN_KLASOR/images/icon.png" alt="OYUN_ADI" onerror="this.parentElement.innerHTML='<span class=\'placeholder-icon\'>OYUN_EMOJI</span>'">
+    </div>
+    <div class="game-info">
+        <h3>OYUN_ADI</h3>
+        <p>OYUN_KISA_ACIKLAMA</p>
+        <span class="platform">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.523 2c1.89.14 3.73 1.23 4.477 3.03.43 1.12.39 2.32.39 3.51v6.93c0 1.19.04 2.4-.39 3.52-.75 1.8-2.59 2.88-4.48 3.02H6.48c-1.89-.14-3.73-1.22-4.48-3.02-.43-1.12-.39-2.33-.39-3.52V8.54c0-1.19-.04-2.39.39-3.51C2.75 3.23 4.59 2.14 6.48 2h11.04zm-5.48 6.32L9.5 12l2.55 3.68h1.41L11 12l2.46-3.68h-1.41z"/></svg>
+            Android
+        </span>
+    </div>
+    <div class="game-actions">
+        <a href="android/OYUN_KLASOR/" class="btn btn-primary">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            İncele
+        </a>
+        <a href="https://play.google.com/store/apps/details?id=PAKET_ADI" class="btn btn-secondary" target="_blank">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1 1 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.8 9.99l-2.302 2.302-8.634-8.634z"/></svg>
+            Yükle
         </a>
     </div>
 </div>
@@ -338,7 +368,7 @@ android/
 |------|--------|-------|
 | Altın Peşinde | altin-pesinde | Kapalı Test |
 | Block Crush: Cubix | block-crush-cubix | Kapalı Test |
-| Block Puzzle+ | block-puzzle-plus | Kapalı Test |
+| Block Puzzle+ | block-puzzle-plus | Yayında |
 | Bricks Breaker | bricks-breaker | Yakında |
 | Dots and Boxes: Lucky | dots-and-boxes-lucky | Yakında |
 | Hikaye Kutusu | hikaye-kutusu | Yakında |
@@ -347,4 +377,4 @@ android/
 | Noir Space | noir-space | Yakında |
 | Rust Hunt | rust-hunt | Yakında |
 | Sudoku Classic+ | sudoku-classic-plus | Yakında |
-| Target: Core | target-core | Kapalı Test |
+| Target: Core | target-core | Yayında |
