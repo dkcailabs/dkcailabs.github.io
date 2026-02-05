@@ -1225,6 +1225,7 @@ footer {
 .screenshots-grid-landscape .screenshot-item img {
     object-fit: contain;
     height: auto;
+    display: block;
 }
 
 .game-description {
