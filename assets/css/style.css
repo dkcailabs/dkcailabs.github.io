@@ -1213,6 +1213,15 @@ footer {
     object-fit: cover;
 }
 
+.screenshots-grid-landscape {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 700px;
+}
+
+.screenshots-grid-landscape .screenshot-item {
+    aspect-ratio: 16/9;
+}
+
 .game-description {
     background: var(--bg-card);
     border: 1px solid var(--card-border);
