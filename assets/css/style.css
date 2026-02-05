@@ -1219,7 +1219,12 @@ footer {
 }
 
 .screenshots-grid-landscape .screenshot-item {
-    aspect-ratio: 16/9;
+    aspect-ratio: auto;
+}
+
+.screenshots-grid-landscape .screenshot-item img {
+    object-fit: contain;
+    height: auto;
 }
 
 .game-description {
