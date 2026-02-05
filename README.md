@@ -4,15 +4,10 @@ Yapay zekâ teknolojileriyle mobil oyun ve uygulamalar geliştiren yenilikçi bi
 
 ## Hakkımızda
 
-DKC Ai Labs, yapay zekâ teknolojilerini geliştirme süreçlerinde kullanarak yenilikçi mobil oyunlar ve uygulamalar üreten bir teknoloji girişimidir. Puzzle'dan maceraya, casual'dan strateji oyunlarına kadar geniş bir yelpazede projeler geliştiriyoruz.
+DKC Ai Labs, yapay zekâ teknolojilerini geliştirme süreçlerinde kullanarak yenilikçi 2D ve 3D mobil oyunlar üreten bir teknoloji girişimidir. Puzzle'dan maceraya, casual'dan strateji oyunlarına kadar geniş bir yelpazede projeler geliştiriyoruz.
 
-## Teknolojiler
-
-- **Flutter** - Uygulama Framework
-- **Flame** - Oyun Motoru
-- **Unity** - Oyun Motoru
-- **C#** - Programlama Dili
-- **Android** - Aktif Platform
+- **12** Oyun Projesi
+- **Android** Platform
 
 ## Bağlantılar
 

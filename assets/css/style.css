@@ -609,6 +609,21 @@ section {
     color: white;
 }
 
+.game-card .badge-dimension {
+    right: auto;
+    left: 1rem;
+}
+
+.badge-2d {
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    color: white;
+}
+
+.badge-3d {
+    background: linear-gradient(135deg, #06b6d4, #0891b2);
+    color: white;
+}
+
 .game-image {
     width: 100%;
     height: 180px;
