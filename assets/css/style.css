@@ -643,6 +643,11 @@ section {
     padding: 0.5rem;
 }
 
+.game-image.placeholder-img img {
+    object-fit: cover;
+    padding: 0;
+}
+
 .game-image .placeholder-icon {
     font-size: 4rem;
     opacity: 0.8;
